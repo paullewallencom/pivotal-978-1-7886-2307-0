@@ -1,0 +1,9 @@
+---
+applications:
+- name: customer-1xyz
+  memory: 1gb
+  instances: 1
+  path: ./build/libs/restwebservice-1.jar
+  services: 
+    - mysql
+    - discovery

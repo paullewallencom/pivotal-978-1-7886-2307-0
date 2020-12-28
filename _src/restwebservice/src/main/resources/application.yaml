@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: customer-1xyz  
+    
+spring.jpa.hibernate.ddl-auto: update

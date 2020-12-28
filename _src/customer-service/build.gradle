@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.packt'
+version = '1'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+ext {
+	springCloudServicesVersion = '1.5.0.RELEASE'
+	springCloudVersion = 'Dalston.SR3'
+}
+
+dependencies {
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker')
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-config-client')
+	compile('io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compileOnly('org.projectlombok:lombok')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:${springCloudServicesVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}

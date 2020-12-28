@@ -1,0 +1,1 @@
+cf create-service -c configserver.json p-config-server standard configserver

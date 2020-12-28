@@ -1,0 +1,13 @@
+---
+applications:
+- name: customer-service-1xyz
+  memory: 1gb
+  instances: 1
+  path: ./build/libs/customer-service-1.jar
+  services: 
+    - circuitbreaker
+    - discovery
+    - configserver
+    
+  env:
+    SPRING_PROFILES_ACTIVE: dev
